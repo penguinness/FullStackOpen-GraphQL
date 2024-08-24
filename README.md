@@ -10,4 +10,8 @@ What I learned: GraphQL, Apollo Server, Apollo Client.
 
 - [PhonebookBackend](./lectures/graphql-phonebook-backend/)
 
+- [PhonebookFrontend](./lectures/graphql-phonebook-frontend/)
+
 - [LibraryBackend](./exercises/graphql-library-backend/)
+
+- [LibraryFrontend](./exercises/graphql-library-frontend/)
