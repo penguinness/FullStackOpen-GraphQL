@@ -2,6 +2,7 @@ const { ApolloServer } = require('@apollo/server');
 const { startStandaloneServer } = require('@apollo/server/standalone');
 const { v1: uuid } = require('uuid');
 const { GraphQLError } = require('graphql');
+const { gql } = require('graphql-tag');
 
 let persons = [
   {
@@ -26,7 +27,7 @@ let persons = [
   },
 ];
 
-const typeDefs = `
+const typeDefs = gql`
   enum YesNo {
     YES
     NO
@@ -41,6 +42,8 @@ const typeDefs = `
     name: String!
     phone: String
     address: Address!
+    city: String!
+    street: String!
     id: ID!
   }
 
@@ -58,10 +61,7 @@ const typeDefs = `
       city: String!
     ): Person
 
-    editNumber(
-      name: String!
-      phone: String!
-    ): Person
+    editNumber(name: String!, phone: String!): Person
   }
 `;
 
