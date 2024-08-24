@@ -2,6 +2,7 @@ const { ApolloServer } = require('@apollo/server');
 const { startStandaloneServer } = require('@apollo/server/standalone');
 const { v1: uuid } = require('uuid');
 const { GraphQLError } = require('graphql');
+const { gql } = require('graphql-tag');
 
 let authors = [
   {
@@ -87,7 +88,7 @@ let books = [
   },
 ];
 
-const typeDefs = `
+const typeDefs = gql`
   type Book {
     title: String!
     author: String!
@@ -110,17 +111,14 @@ const typeDefs = `
   }
 
   type Mutation {
-    addBook (
+    addBook(
       title: String!
       author: String!
       published: Int!
       genres: [String!]!
     ): Book
 
-    editAuthor (
-      name: String!
-      setBornTo: Int!
-    ): Author
+    editAuthor(name: String!, setBornTo: Int!): Author
   }
 `;
 
